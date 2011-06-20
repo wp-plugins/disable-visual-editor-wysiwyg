@@ -1,22 +1,42 @@
-Plugin Name: Disable Visual Editor WYSIWYG
-Version: 1.0
-License: GPL2
-Plugin URI: http://discordiadesign.com
-Author: Stanislav Mandulov
-Author URI: http://stanxp.com/
-Description: This plugin will disable the visual editor for selected page(s)/post(s). The idea behind this came after i had to keep the html intact by the tinymce editor whenever i switched back to Visual tab in the editor.
+=== Plugin Name ===
+Contributors: stanxp
+Donate link: http://stanxp.com
+Tags: disable,visual,editor,wysiwyg,admin
+Requires at least: 3.0.0
+Tested up to: 3.1.3
+Stable tag: trunk
 
-    Copyright 2010  DiscordiaDesign.com  (email : office@discordiadesign.com)
+This plugin will disable the visual editor for selected page(s)/post(s). The idea behind this came after i had to keep the html intact by the tinymce editor whenever i switched back to Visual tab in the editor.
 
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License, version 2, as 
-    published by the Free Software Foundation.
+== Description ==
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+This plugin will disable the visual editor for selected page(s)/post(s). The idea behind this came after i had to keep the html intact by the tinymce editor whenever i switched back to Visual tab in the editor.
 
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+== Installation ==
+
+1. Upload directory `disable-visual-editor-wysiwyg` to the `/wp-content/plugins/` directory
+2. Activate the plugin through the 'Plugins' menu in WordPress
+
+== Frequently Asked Questions ==
+
+= How to disable/enable wysiwyg editor for page/post? =
+
+Go to admin section where you add/edit new page/post and you will see small panel on the right called "Visual Editor" with a checkbox saying "Disable". When you thick it and update the post, you will no longer be able to edit the page/post until you unthick and update the page/post.
+
+== Screenshots ==
+
+1. screen1.png
+
+== Changelog ==
+
+= 1.0 =
+* Released.
+
+
+== Upgrade Notice ==
+
+
+== Arbitrary section ==
+
+
+== A brief Markdown Example ==
