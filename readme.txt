@@ -1,7 +1,7 @@
-=== Plugin Name ===
+﻿=== Plugin Name ===
 Contributors: stanxp
 Donate link: http://stanxp.com
-Tags: disable,visual,editor,wysiwyg,admin
+Tags: disable,visual,editor,wysiwyg,admin,tinymce
 Requires at least: 3.0.0
 Tested up to: 3.1.3
 Stable tag: trunk
@@ -25,7 +25,7 @@ Go to admin section where you add/edit new page/post and you will see small pane
 
 == Screenshots ==
 
-1. screen1.png
+1. Here you can see the panel where you can disable the visual editor.
 
 == Changelog ==
 
