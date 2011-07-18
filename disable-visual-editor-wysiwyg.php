@@ -55,9 +55,11 @@ function dvew_admin_edit_page($content){
 }
 function dvew_admin_edit_page_js(){
 	echo '<script type="text/javascript">
-		  switchEditors.go(\'content\', \'html\');
-		  document.getElementById("edButtonPreview").onclick = \'none\';
-		  document.getElementById("edButtonPreview").innerHTML = \'<span style="text-decoration:line-through">\'+document.getElementById("edButtonPreview").innerHTML+\'</em>\';
+		 jQuery(document).ready(function(){
+			  switchEditors.go(\'content\', \'html\');
+			  document.getElementById("edButtonPreview").onclick = \'none\';
+			  document.getElementById("edButtonPreview").innerHTML = \'<span style="text-decoration:line-through">\'+document.getElementById("edButtonPreview").innerHTML+\'</em>\';
+		 });
 		  </script>';
 }
 
