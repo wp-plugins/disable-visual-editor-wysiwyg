@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Disable Visual Editor WYSIWYG
-Version: 1.0
+Version: 1.1
 License: GPL2
 Plugin URI: http://discordiadesign.com
 Author: Stanislav Mandulov
