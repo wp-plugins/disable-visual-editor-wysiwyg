@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Disable Visual Editor WYSIWYG
-Version: 1.1
+Version: 1.2
 License: GPL2
 Plugin URI: http://discordiadesign.com
 Author: Stanislav Mandulov
@@ -57,8 +57,8 @@ function dvew_admin_edit_page_js(){
 	echo '<script type="text/javascript">
 		 jQuery(document).ready(function(){
 			  switchEditors.go(\'content\', \'html\');
-			  document.getElementById("edButtonPreview").onclick = \'none\';
-			  document.getElementById("edButtonPreview").innerHTML = \'<span style="text-decoration:line-through">\'+document.getElementById("edButtonPreview").innerHTML+\'</em>\';
+			  document.getElementById("content-tmce").onclick = \'none\';
+			  document.getElementById("content-tmce").innerHTML = \'<span style="text-decoration:line-through">\'+document.getElementById("content-tmce").innerHTML+\'</em>\';
 		 });
 		  </script>';
 }
