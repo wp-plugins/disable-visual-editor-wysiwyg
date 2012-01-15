@@ -3,7 +3,7 @@ Contributors: stanxp
 Donate link: http://stanxp.com
 Tags: disable,visual,editor,wysiwyg,admin,tinymce
 Requires at least: 3.0.0
-Tested up to: 3.3
+Tested up to: 3.3.1
 Stable tag: trunk
 
 This plugin will disable the visual editor for selected page/post..
@@ -29,6 +29,8 @@ Go to admin section where you add/edit new page/post and you will see small pane
 
 == Changelog ==
 
+= 1.3 =
+* Quick fix for 3.3
 
 = 1.2 =
 * Quick fix for 3.3
@@ -41,6 +43,9 @@ Go to admin section where you add/edit new page/post and you will see small pane
 
 
 == Upgrade Notice ==
+
+= 1.3 =
+* Quick fix for 3.3
 
 = 1.2 =
 * Quick fix for 3.3
