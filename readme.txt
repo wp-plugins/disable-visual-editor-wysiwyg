@@ -29,6 +29,9 @@ Go to admin section where you add/edit new page/post and you will see small pane
 
 == Changelog ==
 
+= 1.4.1 =
+* Minor change
+
 = 1.4 =
 * Simplified and improved
 
@@ -46,6 +49,9 @@ Go to admin section where you add/edit new page/post and you will see small pane
 
 
 == Upgrade Notice ==
+
+= 1.4.1 =
+* Minor change
 
 = 1.4 =
 * Simplified and improved
