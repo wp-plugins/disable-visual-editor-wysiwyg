@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Disable Visual Editor WYSIWYG
-Version: 1.3
+Version: 1.4
 License: GPL2
 Plugin URI: http://discordiadesign.com
 Author: Stanislav Mandulov
@@ -24,47 +24,34 @@ Description: This plugin will disable the visual editor for selected page(s)/pos
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-add_filter( 'admin_init', 'dvew_admin_pre_edit_page');
-add_filter( 'format_to_edit', 'dvew_admin_edit_page');
-
 add_action( 'admin_init', 'dvew_add_custom_box', 1 );
 add_action( 'save_post', 'dvew_save_post' );
 
+add_filter( 'wp_default_editor', 'dvew_switch_editor' );
+add_filter( 'admin_footer', 'dvew_admin_edit_page_js', 99);
 
-function dvew_admin_pre_edit_page(){
-	if(strpos($_SERVER['PHP_SELF'],'/wp-admin/post.php') !== FALSE){
-		if(!isset($_COOKIE['wp-settings-1'])){
-			$cookie_path = str_replace('/wp-admin/post.php','/',$_SERVER['PHP_SELF']);
-			setcookie('wp-settings-1','m5=3&editor=html&m9=o&m1=o',0,$cookie_path);
-		}
-	}
-
-}
-
-function dvew_admin_edit_page($content){
+function dvew_switch_editor($content){
 	if(isset($_GET['post']) && get_post_meta($_GET['post'], 'dvew_checkbox') != false){
-		if(strpos($_SERVER['PHP_SELF'],'/wp-admin/post.php') !== FALSE){
-			$cookie_path = str_replace('/wp-admin/post.php','/',$_SERVER['PHP_SELF']);
-			setcookie('wp-settings-1','m5=3&editor=html&m9=o&m1=o',0,$cookie_path);
-			
-		}
-	
-		add_filter('admin_footer', 'dvew_admin_edit_page_js', 99);
+		return 'html';
 	}
-	
 	return $content;
 }
+
+
 function dvew_admin_edit_page_js(){
-	echo '<script type="text/javascript">
-		 jQuery(document).ready(function(){
-			  setTimeout(function(){switchEditors.go(\'content\', \'html\');}, 10);
-			  document.getElementById("content-tmce").onclick = \'none\';
-			  document.getElementById("content-tmce").innerHTML = \'<span style="text-decoration:line-through">\'+document.getElementById("content-tmce").innerHTML+\'</em>\';
-		 });
-		  </script>';
+	if(isset($_GET['post']) && get_post_meta($_GET['post'], 'dvew_checkbox') != false){
+		echo '  <style type="text/css">
+				a#content-tmce, a#content-tmce:hover{
+					display:none;
+				}
+				</style>';
+		echo '	<script type="text/javascript">
+			 	jQuery(document).ready(function(){
+					document.getElementById("content-tmce").onclick = \'none\';
+			 	});
+			 	</script>';
+	}
 }
-
-
 
 function dvew_add_custom_box() {
     add_meta_box( 
