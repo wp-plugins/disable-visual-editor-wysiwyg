@@ -87,28 +87,23 @@ function dvew_custom_box() {
 }
 
 function dvew_save_post( $post_id ) {
-  if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) 
-      return;
+	if(defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
 
-  if ( !wp_verify_nonce( $_POST['dvew_noncename'], plugin_basename( __FILE__ ) ) )
-      return;
-
-  if ( 'page' == $_POST['post_type'] ) 
-  {
-    if ( !current_user_can( 'edit_page', $post_id ) )
-        return;
-  }
-  else
-  {
-    if ( !current_user_can( 'edit_post', $post_id ) )
-        return;
-  }
-
-  if(isset($_POST['dvew_checkbox'])){
-	  if(!get_post_meta($post_id, 'dvew_checkbox')) add_post_meta($post_id, 'dvew_checkbox', 1);
-  }else{
-	  delete_post_meta($post_id, 'dvew_checkbox');
-  }
+	if(!isset($_POST['dvew_noncename']) || !wp_verify_nonce( $_POST['dvew_noncename'], plugin_basename( __FILE__ ) ) )  return;
+  
+	if(!isset($_POST['post_type'])) return;
+		
+	if ( 'page' == $_POST['post_type'] ) {
+		if ( !current_user_can( 'edit_page', $post_id ) ) return;
+	}else{
+		if ( !current_user_can( 'edit_post', $post_id ) ) return;
+	}
+	
+	if(isset($_POST['dvew_checkbox'])){
+		if(!get_post_meta($post_id, 'dvew_checkbox')) add_post_meta($post_id, 'dvew_checkbox', 1);
+	}else{
+		delete_post_meta($post_id, 'dvew_checkbox');
+	}
 }
 
 ?>
