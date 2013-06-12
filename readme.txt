@@ -3,14 +3,14 @@ Contributors: stanxp
 Donate link: http://stanxp.com
 Tags: disable,visual,editor,wysiwyg,admin,tinymce
 Requires at least: 3.0.0
-Tested up to: 3.5
+Tested up to: 3.5.1
 Stable tag: trunk
 
 This plugin will disable the visual editor for selected page/post..
 
 == Description ==
 
-This plugin will disable the visual editor for selected page/post. The idea behind this came after i had to keep the html intact by the tinymce editor whenever i switched back to Visual tab in the editor.
+This plugin will disable the visual editor for selected page(s)/post(s)/custom post types. The idea behind this came after i had to keep the html intact by the tinymce editor whenever i switched back to Visual tab in the editor.
 
 == Installation ==
 
@@ -28,6 +28,9 @@ Go to admin section where you add/edit new page/post and you will see small pane
 1. Here you can see the panel where you can disable the visual editor.
 
 == Changelog ==
+
+= 1.5 =
+* Custom post types and improvements
 
 = 1.4.1 =
 * Minor change
@@ -49,6 +52,9 @@ Go to admin section where you add/edit new page/post and you will see small pane
 
 
 == Upgrade Notice ==
+
+= 1.5 =
+* Custom post types and improvements
 
 = 1.4.1 =
 * Minor change
