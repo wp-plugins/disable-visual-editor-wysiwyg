@@ -29,6 +29,9 @@ Go to admin section where you add/edit new page/post and you will see small pane
 
 == Changelog ==
 
+= 1.5.1 =
+* Fixed meta-value duplication
+
 = 1.5 =
 * Custom post types and improvements
 
@@ -52,6 +55,9 @@ Go to admin section where you add/edit new page/post and you will see small pane
 
 
 == Upgrade Notice ==
+
+= 1.5.1 =
+* Fixed meta-value duplication
 
 = 1.5 =
 * Custom post types and improvements

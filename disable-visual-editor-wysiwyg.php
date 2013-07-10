@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Disable Visual Editor WYSIWYG
-Version: 1.5.0
+Version: 1.5.1
 License: GPL2
 Plugin URI: http://discordiadesign.com
 Author: Stanislav Mandulov
@@ -86,7 +86,7 @@ function dvew_save_post( $post_id ) {
 	if(!isset($_POST['post_type'])) return;
 	
 	if(isset($_POST['dvew_checkbox'])){
-		if(!get_post_meta($post_id, 'dvew_checkbox')) add_post_meta($post_id, 'dvew_checkbox', 1);
+		add_post_meta($post_id, 'dvew_checkbox', 1, true);
 	}else{
 		delete_post_meta($post_id, 'dvew_checkbox');
 	}
