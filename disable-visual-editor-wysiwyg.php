@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Disable Visual Editor WYSIWYG
-Version: 1.5.1
+Version: 1.5.2
 License: GPL2
 Plugin URI: http://discordiadesign.com
 Author: Stanislav Mandulov
@@ -24,11 +24,17 @@ Description: This plugin will disable the visual editor for selected page(s)/pos
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-add_action( 'add_meta_boxes', 'dvew_add_meta_boxes' );
-add_action( 'save_post', 'dvew_save_post' );
 
 add_filter( 'wp_default_editor', 'dvew_switch_editor' );
 add_filter( 'admin_footer', 'dvew_admin_edit_page_js', 99);
+add_action( 'plugins_loaded', 'dvew_plugins_loaded' );
+
+function dvew_plugins_loaded(){
+    if(is_super_admin()){
+		add_action( 'add_meta_boxes', 'dvew_add_meta_boxes' );
+		add_action( 'save_post', 'dvew_save_post' );
+	}
+}
 
 function dvew_switch_editor($content){
 	if(isset($_GET['post']) && get_post_meta($_GET['post'], 'dvew_checkbox') != false){
@@ -41,7 +47,7 @@ function dvew_switch_editor($content){
 function dvew_admin_edit_page_js(){
 	if(isset($_GET['post']) && get_post_meta($_GET['post'], 'dvew_checkbox') != false){
 		echo '  <style type="text/css">
-				a#content-tmce, a#content-tmce:hover{
+				a#content-tmce, a#content-tmce:hover, #qt_content_fullscreen{
 					display:none;
 				}
 				</style>';
