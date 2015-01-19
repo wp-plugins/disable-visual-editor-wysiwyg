@@ -3,7 +3,7 @@ Contributors: stanxp
 Donate link: http://wordpress-themes.pro/
 Tags: disable,visual,editor,wysiwyg,admin,tinymce
 Requires at least: 3.0.0
-Tested up to: 3.8.1
+Tested up to: 4.1
 Stable tag: trunk
 
 This plugin will disable the visual editor for selected page/post..
@@ -28,6 +28,11 @@ Go to admin section where you add/edit new page/post and you will see small pane
 1. Here you can see the panel where you can disable the visual editor.
 
 == Changelog ==
+
+= 1.7 =
+* Fixed visual bug for version 4.1
+* Russian translation ( thanks to Aurumdao )
+* Bulgarian translation
 
 = 1.6 =
 * You can now disable the editor for all posts/pages/custom post types.
@@ -62,6 +67,11 @@ Go to admin section where you add/edit new page/post and you will see small pane
 
 == Upgrade Notice ==
 
+= 1.7 =
+* Fixed visual bug for version 4.1
+* Russian translation ( thanks to Aurumdao )
+* Bulgarian translation
+
 = 1.6 =
 * You can now disable the editor for all posts/pages/custom post types.
 
@@ -91,8 +101,3 @@ Go to admin section where you add/edit new page/post and you will see small pane
 
 = 1.0 =
 Released
-
-== Arbitrary section ==
-
-
-== A brief Markdown Example ==

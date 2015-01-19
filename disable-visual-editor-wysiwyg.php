@@ -1,12 +1,14 @@
 <?php
 /*
 Plugin Name: Disable Visual Editor WYSIWYG
-Version: 1.6.0
+Version: 1.7.0
 License: GPL2
 Plugin URI: http://wordpress-themes.pro/
 Author: Stanislav Mandulov
 Author URI: http://wordpress-themes.pro/
 Description: This plugin will disable the visual editor for selected page(s)/post(s)/custom post types. The idea behind this came after i had to keep the html intact by the tinymce editor whenever i switched back to Visual tab in the editor.
+Text Domain: disable-visual-editor-wysiwyg
+Domain Path: /languages
 * 
     Copyright 2010  DiscordiaDesign.com  (email : office@discordiadesign.com)
 
@@ -28,6 +30,15 @@ Description: This plugin will disable the visual editor for selected page(s)/pos
 add_filter( 'wp_default_editor', 'dvew_switch_editor' );
 add_filter( 'admin_footer', 'dvew_admin_edit_page_js', 99);
 add_action( 'plugins_loaded', 'dvew_plugins_loaded' );
+
+define( 'PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+
+function load_translation() { 
+	load_plugin_textdomain( 'disable-visual-editor-wysiwyg', false, 
+		dirname( plugin_basename( PLUGIN_DIR . 'disable-visual-editor-wysiwyg.php' ) ) . '/languages/' );
+	
+}
+add_action('admin_init', 'load_translation');
 
 function dvew_plugins_loaded(){
     if(is_super_admin()){
@@ -80,7 +91,7 @@ function dvew_admin_edit_page_js(){
 	
 	if( ( isset($post['id']) && get_post_meta($post['id'], 'dvew_checkbox') != false ) || ( isset($post['type']) && get_option( 'dvew_post_type_' . $post['type'] ) != false ) ){
 		echo '  <style type="text/css">
-				a#content-tmce, a#content-tmce:hover, #qt_content_fullscreen{
+				#content-tmce, #content-tmce:hover, #qt_content_fullscreen{
 					display:none;
 				}
 				</style>';
@@ -95,7 +106,7 @@ function dvew_admin_edit_page_js(){
 function dvew_add_meta_boxes($post_type) {
 	add_meta_box( 
 		'dvew_sectionid',
-		__( 'Visual Editor', 'dvew_plugin' ),
+		__( 'Visual Editor', 'disable-visual-editor-wysiwyg' ),
 		'dvew_custom_box',
 		$post_type,
 		'side',
@@ -119,7 +130,7 @@ function dvew_custom_box() {
 	echo '<p>';
 	echo '<input type="checkbox" id="dvew_checkbox" name="dvew_checkbox" '.$checked.'/>';
 	echo '<label for="dvew_checkbox">';
-	   _e(" Disable for current post", 'dvew_plugin' );
+	   _e(" Disable for current post", 'disable-visual-editor-wysiwyg' );
 	echo '</label> ';
 	echo '</p>';
 	
@@ -131,7 +142,7 @@ function dvew_custom_box() {
 	echo '<p>';
 	echo '<input type="checkbox" id="dvew_post_type" name="dvew_post_type" '.$checked.'/>';
 	echo '<label for="dvew_post_type">';
-	   _e(" Disable for all posts of this type", 'dvew_plugin' );
+	   _e(" Disable for all posts of this type", 'disable-visual-editor-wysiwyg' );
 	echo '</label> ';
 	echo '</p>';
 }
